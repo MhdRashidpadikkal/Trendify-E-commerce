@@ -29,14 +29,11 @@ const Navbar = () => {
             id:4,
             title : "Contact Us",
             link : "/contact"
-        }]
-
-        console.log("toggle is ", isToggle);
-        
+        }]        
 
   return (
     
-    <div className='relative'>
+    <div className='relative mt-5'>
         <div className='flex justify-between '>
             <div className='flex items-center h-[60px]'>
                 <div className="logo">
