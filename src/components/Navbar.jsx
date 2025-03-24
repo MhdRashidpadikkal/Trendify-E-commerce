@@ -33,13 +33,13 @@ const Navbar = () => {
 
   return (
     
-    <div className='relative mt-5'>
+    <div className='relative mt-5 px-3'>
         <div className='flex justify-between '>
             <div className='flex items-center h-[60px]'>
                 <div className="logo">
                     <img src={logo} alt="Trendify logo" width={'200px'} />
                 </div>
-                <ul className='hidden md:flex ml-4 text-[18px] font-semibold gap-5'>
+                <ul className='hidden md:flex ml-4 text-[16px] lg:text-[18px] font-semibold gap-2 xl:gap-5 text-nowrap'>
                     {
                         lists.map((item, index) => <li key={index}> <NavLink to={item.link} >{item.title}</NavLink> </li> )
                     }
@@ -51,7 +51,7 @@ const Navbar = () => {
                  <InputPlcaholder  />
                 </div>
     
-                <li><Heart /></li>
+                <li className='flex md:hidden lg:flex '><Heart /></li>
                 <li><ShoppingCart /></li>
                 <li className='flex md:hidden' onClick={() => setIsToggle((prev) => !prev)}><Menu /></li>
             </div>   
