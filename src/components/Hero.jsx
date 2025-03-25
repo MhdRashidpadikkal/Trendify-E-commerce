@@ -23,10 +23,10 @@ const Hero = () => {
   console.log("hero is " + hero?.product?.discount);
 
   return (
-    <div className="flex bg-gray-100 h-[700px] md:h-[450px] 2xl:h-[500px] justify-center rounded-md w-full mt-5 pb-7 py-18 md:py-14">
+    <div className="flex bg-gray-100 h-[700px] md:h-[450px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
       <AnimatePresence>
         {(
-          <div className="flex flex-col md:flex-row px-14 md:px-0 2xl:px-28 gap-10 md:gap-5">
+          <div className="flex flex-col md:flex-row px-5 md:px-0 2xl:px-28 gap-10 md:gap-5">
             
             <div className="flex flex-col items-start w-[100%] md:w-[50%] gap-5 ps-3">
                 <div>
@@ -103,9 +103,9 @@ const Hero = () => {
                        <Tag size={16} className=""/>
                       <p className="text-gray-300 font-medium inline-block">  {hero.product.category}</p>
                     </div>
-                    <h3 className="text-[20px] md:text-2xl font-semibold text-[#437d21]">{hero.product.name}</h3>
+                    <h3 className="text-[16px] md:text-2xl font-semibold text-[#437d21]">{hero.product.name}</h3>
                     <div>Stars  <span className="text-gray-500 text-sm"> ({ hero.product.reviews} reviews)</span></div>
-                    <h2 className="text-3xl font-bold">₹{hero.product.price}.00  <span className="text-[18px] font-semibold"> <strike>₹{hero.product.strikePrice}.00</strike></span></h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold">₹{hero.product.price}.00  <span className=" sm:text-[18px] font-semibold"> <strike>₹{hero.product.strikePrice}.00</strike></span></h2>
                     <button className="border rounded-md px-3 py-1 mt-3 cursor-pointer">View more</button>
               </motion.div>
            </div>
