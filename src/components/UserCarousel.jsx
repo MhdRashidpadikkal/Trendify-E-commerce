@@ -14,7 +14,7 @@ const UserCarousel = () => {
             >
             <CarouselContent>
                 {userCarousel.map((item, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4 ">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ">
                     <div className="p-1">
                     <Card className="bg-transparent h-[170px] border-none rounded-none">
                         <CardContent className="flex  items-center justify-center p-6 gap-3 ">
