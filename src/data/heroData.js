@@ -8,7 +8,7 @@ export const heroData = [
         id: 1,
         title: 'Top Electronics  ',
         secondTitle: 'JBL Headset',
-        description: 'Experience immersive sound with the latest JBL headset, featuring cutting-edge noise cancellation, deep bass, and crystal-clear audio clarity, ensuring a premium listening experience for music lovers.',
+        description: 'Experience immersive sound with the latest JBL headset, featuring cutting-edge, ensuring a premium listening experience for music lovers.',
         product: {
             id: 1.1,
             name: 'JBL Wireless Headset',
@@ -59,7 +59,7 @@ export const heroData = [
         id: 4,
         title: 'Smart Accessories  ',
         secondTitle: 'Smartwatch',
-        description: 'Upgrade your daily routine with this advanced smartwatch, featuring real-time health tracking, seamless Bluetooth connectivity, fitness monitoring, and instant notifications.',
+        description: 'Upgrade your daily routine with this advanced smartwatch, featuring real-time health tracking, seamless Bluetooth connectivity, and instant notifications.',
         product: {
             id: 4.1,
             name: 'Advanced Smartwatch',

@@ -1,30 +1,26 @@
 import { heroData } from "@/data/heroData";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, delay } from "framer-motion";
 import { Tag } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  console.log("hero data length: " + heroData.length);
-  
-
   useEffect(() => {
-    
+
     const timer = setTimeout(() => {
       setCurrentIndex((prevIndex) =>  prevIndex === heroData.length - 1 ? 0 : prevIndex + 1);
     }, 5500); 
+    
 
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
-  console.log("current index is " + currentIndex);
   const hero = heroData[currentIndex];
-  console.log("hero is " + hero?.product?.discount);
 
   return (
-    <div className="flex bg-gray-100 h-[700px] md:h-[450px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
-      <AnimatePresence>
+    <div className="flex bg-gray-100 h-[580px] md:h-[450px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
+      <AnimatePresence initial={false} mode="wait">
         {(
           <div className="flex flex-col md:flex-row px-5 md:px-0 2xl:px-28 gap-10 md:gap-5">
             
@@ -66,13 +62,13 @@ const Hero = () => {
           </div>
 
          <div className="w-[100%] md:w-[50%] relative ps-4">
-              <div className="flex h-[400px] relative justify-end md:px-0 2xl:px-8 ">
+              <div className="flex  relative justify-end md:px-0 2xl:px-8 overflow-hidden">
                 <motion.div
                       key={hero.id + hero.title + hero.product.discount }
                       initial={{ opacity:0, scale: 0.5 }}
                       animate={{ opacity:1, scale:1, rotate: [-10, 10] }} 
                       
-                      transition={{ duration: 1, rotate: { duration: 1.5,repeat: Infinity, repeatType: "reverse", ease: "easeInOut"} }}
+                      transition={{ duration: 1, rotate: { duration: 1.5,repeat: Infinity, repeatType: "reverse", ease: "easeInOut",} }}
                       className="bg-yellow-400 h-[50px] sm:h-[80px] rounded-full text-black text-sm sm:text-xl w-[50px] sm:w-[80px] absolute font-semibold sm:font-bold right-8 md:right-28 top-2 md:top-7 text-center py-1 sm:py-3 px-2 z-40"
                   >
                       {hero?.product?.discount} <br /> <span>OFF</span>
@@ -96,7 +92,7 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1, ease: "easeInOut" }}
-                  className="bg-white rounded-md p-5 w-[300px] sm:w-[400px] md:w-[320px] lg:w-[400px] flex flex-col items-start absolute bottom-50 sm:bottom-25 2xl:bottom-10 left-0 md:left-0 2xl:left:20 "
+                  className="bg-white rounded-md p-5 w-[300px] sm:w-[400px] md:w-[320px] lg:w-[400px] flex flex-col items-start absolute bottom-0 sm:bottom-25 2xl:bottom-10 left-0 md:left-0 2xl:left:20 "
                   >
                     
                     <div className="flex gap-1 items-center">
@@ -105,7 +101,7 @@ const Hero = () => {
                     </div>
                     <h3 className="text-[16px] md:text-2xl font-semibold text-[#437d21]">{hero.product.name}</h3>
                     <div>Stars  <span className="text-gray-500 text-sm"> ({ hero.product.reviews} reviews)</span></div>
-                    <h2 className="text-2xl sm:text-3xl font-bold">₹{hero.product.price}.00  <span className=" sm:text-[18px] font-semibold"> <strike>₹{hero.product.strikePrice}.00</strike></span></h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold">₹{hero.product.price}.00  <span className="text-[15px] sm:text-[18px] font-semibold sm:bg-transparent"> <strike>₹{hero.product.strikePrice}.00</strike></span></h2>
                     <button className="border rounded-md px-3 py-1 mt-3 cursor-pointer">View more</button>
               </motion.div>
            </div>

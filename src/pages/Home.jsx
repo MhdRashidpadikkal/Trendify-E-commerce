@@ -7,6 +7,7 @@ const Home = () => {
     <div>
       <Hero />
       <UserCarousel />
+      
     </div>
   )
 }
