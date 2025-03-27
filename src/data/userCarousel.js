@@ -5,7 +5,7 @@ import kitchen from '../assets/userCarousel/kitchen-cook.png'
 import men from '../assets/userCarousel/mens-fashion.png'
 import women from '../assets/userCarousel/women-fashion.png'
 
-export const userCarousel = [
+export const userCarouselData = [
     {
         image: user,
         title: "Hi, Alan recomendations for you 👉"
