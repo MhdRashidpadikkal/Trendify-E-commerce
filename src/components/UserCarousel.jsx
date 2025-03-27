@@ -20,8 +20,8 @@ const UserCarousel = () => {
                         <CardContent className="flex  items-center justify-center p-6 gap-3 ">
                            <img src={item.image} alt="" className="object-cover h-[100px]" />
                            <div>
-                            <CardTitle className="text-2xl ">{item.title}</CardTitle>
-                            {item.subTitle && <CardDescription className="text-[18px]">{item.subTitle}</CardDescription>}
+                            <CardTitle className="text-[18px] sm:text-2xl ">{item.title}</CardTitle>
+                            {item.subTitle && <CardDescription className="text-[16px] sm:text-[18px]">{item.subTitle}</CardDescription>}
                            </div>
                         </CardContent>
                     </Card>

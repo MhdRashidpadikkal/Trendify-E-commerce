@@ -1,3 +1,4 @@
+import Category from '@/components/Category'
 import Hero from '@/components/Hero'
 import UserCarousel from '@/components/UserCarousel'
 import React from 'react'
@@ -7,7 +8,7 @@ const Home = () => {
     <div>
       <Hero />
       <UserCarousel />
-      
+      <Category />
     </div>
   )
 }
