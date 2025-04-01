@@ -22,7 +22,7 @@ const Hero = () => {
     <div className="flex bg-gray-100 h-[580px] md:h-[450px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
       <AnimatePresence initial={false} mode="wait">
         {(
-          <div className="flex flex-col md:flex-row px-5 md:px-0 2xl:px-28 gap-10 md:gap-5">
+          <div className="flex flex-col gap-10 px-5 md:flex-row md:px-0 2xl:px-28 md:gap-5">
             
             <div className="flex flex-col items-start w-[100%] md:w-[50%] gap-5 ps-3">
                 <div>
@@ -32,7 +32,7 @@ const Hero = () => {
                       animate={{ x: 0, opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.5 }} 
                       transition={{ duration: 1, ease: "easeInOut" }} 
-                      className="text-3xl md:text-4xl lg:text-5xl 2xl:text-7xl font-bold text-nowrap leading-none">{hero.title}</motion.h2>
+                      className="text-3xl font-bold leading-none md:text-4xl lg:text-5xl 2xl:text-7xl text-nowrap">{hero.title}</motion.h2>
                   <motion.h2 
                       key={hero.id + hero.secondTitle}
                       initial={{ x: -200, opacity: 0, scale: 0.8 }}
@@ -47,7 +47,7 @@ const Hero = () => {
                   animate={{ x: 0, opacity: 1, scale: 1 }} 
                   exit={{ opacity: 0, scale: 0.5 }} 
                   transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }} 
-                  className="text-gray-600 text-lg font-medium">{hero.description}</motion.p>
+                  className="text-lg font-medium text-gray-600">{hero.description}</motion.p>
 
                   <motion.button
                     key={hero.id + '-btn'}
@@ -62,7 +62,7 @@ const Hero = () => {
           </div>
 
          <div className="w-[100%] md:w-[50%] relative ps-4">
-              <div className="flex  relative justify-end md:px-0 2xl:px-8 overflow-hidden">
+              <div className="relative flex justify-end overflow-hidden md:px-0 2xl:px-8">
                 <motion.div
                       key={hero.id + hero.title + hero.product.discount }
                       initial={{ opacity:0, scale: 0.5 }}
@@ -95,14 +95,19 @@ const Hero = () => {
                   className="bg-white rounded-md p-5 w-[300px] sm:w-[400px] md:w-[320px] lg:w-[400px] flex flex-col items-start absolute bottom-0 sm:bottom-25 2xl:bottom-10 left-0 md:left-0 2xl:left:20 "
                   >
                     
-                    <div className="flex gap-1 items-center">
+                    <div className="flex items-center gap-1">
                        <Tag size={16} className=""/>
-                      <p className="text-gray-300 font-medium inline-block">  {hero.product.category}</p>
+                      <p className="inline-block font-medium text-gray-300">  {hero.product.category}</p>
                     </div>
                     <h3 className="text-[16px] md:text-2xl font-semibold text-[#437d21]">{hero.product.name}</h3>
-                    <div>Stars  <span className="text-gray-500 text-sm"> ({ hero.product.reviews} reviews)</span></div>
-                    <h2 className="text-2xl sm:text-3xl font-bold">₹{hero.product.price}.00  <span className="text-[15px] sm:text-[18px] font-semibold sm:bg-transparent"> <strike>₹{hero.product.strikePrice}.00</strike></span></h2>
-                    <button className="border rounded-md px-3 py-1 mt-3 cursor-pointer">View more</button>
+                    <div>Stars  <span className="text-sm text-gray-500"> ({ hero.product.reviews} reviews)</span></div>
+                    <h2 className="text-2xl font-bold sm:text-3xl">
+                      ₹{hero.product.price}.00  
+                      <span className="text-[15px] sm:text-[18px] font-semibold sm:bg-transparent"> 
+                        <strike>₹{hero.product.strikePrice}.00</strike>
+                      </span>
+                    </h2>
+                    <button className="px-3 py-1 mt-3 border rounded-md cursor-pointer">View more</button>
               </motion.div>
            </div>
             
