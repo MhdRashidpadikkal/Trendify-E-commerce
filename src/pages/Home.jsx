@@ -1,5 +1,6 @@
 import Category from '@/components/Category'
 import DeliveryAd from '@/components/DeliveryAd'
+import FeaturedProducts from '@/components/FeaturedProducts'
 import Hero from '@/components/Hero'
 import OffersShowcase from '@/components/OffersShowcase'
 import UserCarousel from '@/components/UserCarousel'
@@ -13,6 +14,7 @@ const Home = () => {
       <Category />
       <OffersShowcase />
       <DeliveryAd />
+      <FeaturedProducts />
     </div>
   )
 }
