@@ -1,8 +1,21 @@
 import { ArrowRight, Heart } from 'lucide-react';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const ProductList = (props) => {
     const { data, title } = props;
+    const [imageLoaded, setImageLoaded] = useState(new Array(data.length).fill(false));
+
+    console.log("the image loaded: ", imageLoaded) 
+
+    const handleImageLoad = (index) => {
+        setImageLoaded((prevState) => {
+            const newState = [...prevState];
+            newState[index] = true;
+            return newState;
+        })
+    }
+
+    
 
   return (  
             
@@ -18,7 +31,14 @@ const ProductList = (props) => {
                 <div 
                     key={index}
                     className="w-[47%] md:w-[30%] lg:w-[22%] xl:w-[18%] 2xlw-[18%] h-[380px] 2xl:h-[400px] shrink-0 bg-gray-100 text-black p-6 text-center rounded-md overflow-hidden">
-                    <img src={item.images[0]} alt={item.title} className='h-[55%]' />
+                    {!imageLoaded[index] && <div className='h-[55%] w-full bg-gray-300 animate-pulse '></div>}
+                    {
+                        <img src={item.images[0]} alt={item.title} 
+                        className={`h-[55%] ${imageLoaded[index] ? "opacity-100" : "opacity-0" } `} 
+                        loading='lazy'
+                        onLoad={() => handleImageLoad(index)}
+                          />
+                     }
                     <div className='flex flex-col items-start'>
                         <p className='text-gray-500'>{item.tags[0]}</p>
                         <h2 className="text-2xl font-bold text-black text-nowrap">{item.title}</h2>
