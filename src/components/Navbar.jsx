@@ -4,9 +4,11 @@ import InputPlcaholder from './aceternityUi/InputPlcaholder'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import logoIcon from '../assets/logo-icon.png'
+import { useCartContext } from '@/context/CartContext'
 
 const Navbar = () => {
     const [isToggle, setIsToggle] = useState(false)
+    const { state } = useCartContext()
     
     
     const lists = [
@@ -29,7 +31,10 @@ const Navbar = () => {
             id:4,
             title : "Contact Us",
             link : "/contact"
-        }]        
+        }]   
+        
+        
+        console.log("navbar items is ", state.cartItems.length)
 
   return (
     
@@ -51,11 +56,12 @@ const Navbar = () => {
                  <InputPlcaholder  />
                 </div>
     
-                <li className='flex md:hidden lg:flex '><Heart /></li>
-                <li><ShoppingCart /></li>
+                <li className='relative flex md:hidden lg:flex'><Heart className='z-20 relative' /> <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-red-200 text-black text-center font-medium z-0'>{state.favorites.length}</span> </li>
+                <li className='relative '><ShoppingCart className='z-20 relative' /> <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-green-200 text-black text-center font-medium z-0'>{state.cartItems.length}</span> </li>
                 <li className='flex md:hidden' onClick={() => setIsToggle((prev) => !prev)}><Menu /></li>
             </div>   
         </div>
+
         {/* Smaller Screens Search */}
         <div className='block w-full md:hidden'>
             <InputPlcaholder />
