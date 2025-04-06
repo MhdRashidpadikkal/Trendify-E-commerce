@@ -1,3 +1,4 @@
+import BrandMarquee from '@/components/BrandMarquee'
 import Category from '@/components/Category'
 import DeliveryAd from '@/components/DeliveryAd'
 import FashionStyle from '@/components/FashionStyle'
@@ -19,6 +20,7 @@ const Home = () => {
       <DeliveryAd />
       <FeaturedProducts />
       <FashionStyle />
+      <BrandMarquee />
       <SuggestedProducts />
       <Subscribe />
     </div>
