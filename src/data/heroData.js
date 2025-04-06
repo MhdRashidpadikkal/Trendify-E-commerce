@@ -67,7 +67,7 @@ export const heroData = [
             price: '400',
             strikePrice: '450',
             image: img4,
-            rating: 4.7,
+            rating: 2.7,
             reviews: 18,
             discount: '25%',
         },
