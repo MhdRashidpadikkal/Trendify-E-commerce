@@ -8,7 +8,7 @@ import { ArrowRight, CircleChevronRight } from 'lucide-react'
 
 const FashionStyle = () => {
   return (
-    <div className='md:flex gap-3 h-[420px]'>
+    <div className='md:flex gap-3 md:h-[420px]'>
         <div className='md:w-[50%] flex bg-[#e7e8fd] my-10 rounded-md px-5 overflow-hidden '>
             <div className='pt-10 flex flex-col gap-2 pb-5'>
                 <h2 className='text-2xl font-bold text-nowrap'>Comfy styles for her</h2>
@@ -28,7 +28,7 @@ const FashionStyle = () => {
                     <CircleChevronRight className='ms-7 cursor-pointer' />
                 </div>
             </div>
-            <img src={her} alt="fashion her" className='w-[50%]' />
+            <img src={her} alt="fashion her" className='w-[90%] sm:w-[50%] pe-25 sm:pe-0 ' />
         </div>
 
         <div className='md:w-[50%] flex bg-[#fde7ed] my-10 rounded-md px-5 overflow-hidden '>

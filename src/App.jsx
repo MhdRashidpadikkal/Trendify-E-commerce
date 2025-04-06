@@ -5,6 +5,7 @@ import { Button } from './components/ui/button'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import { CartProvider } from './context/CartContext'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Route exact path='/products' element={ <h1>Products Page</h1>} />
             <Route exact path='/about' element={ <h1>About Page</h1>} />
           </Routes>
+          <Footer />
         </div>
       </CartProvider>
     </Router>

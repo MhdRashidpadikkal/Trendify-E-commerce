@@ -4,6 +4,8 @@ import FashionStyle from '@/components/FashionStyle'
 import FeaturedProducts from '@/components/FeaturedProducts'
 import Hero from '@/components/Hero'
 import OffersShowcase from '@/components/OffersShowcase'
+import Subscribe from '@/components/Subscribe'
+import SuggestedProducts from '@/components/SuggestedProducts'
 import UserCarousel from '@/components/UserCarousel'
 import React from 'react'
 
@@ -17,6 +19,8 @@ const Home = () => {
       <DeliveryAd />
       <FeaturedProducts />
       <FashionStyle />
+      <SuggestedProducts />
+      <Subscribe />
     </div>
   )
 }

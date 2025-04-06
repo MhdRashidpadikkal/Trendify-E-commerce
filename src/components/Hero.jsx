@@ -2,6 +2,7 @@ import { heroData } from "@/data/heroData";
 import { motion, AnimatePresence, delay } from "framer-motion";
 import { Tag } from "lucide-react";
 import { useState, useEffect } from "react";
+import RatingStars from "./Star";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,10 +17,11 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
-  const hero = heroData[currentIndex];
+
+  const hero = heroData[currentIndex]; 
 
   return (
-    <div className="flex bg-gray-100 h-[580px] md:h-[450px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
+    <div className="flex bg-gray-100  md:h-[450px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
       <AnimatePresence initial={false} mode="wait">
         {(
           <div className="flex flex-col gap-10 px-5 md:flex-row md:px-0 2xl:px-28 md:gap-5">
@@ -45,6 +47,7 @@ const Hero = () => {
                   key={hero.id + '-desc'}
                   initial={{ x: -200, opacity: 0, scale: 0.8 }}
                   animate={{ x: 0, opacity: 1, scale: 1 }} 
+                  
                   exit={{ opacity: 0, scale: 0.5 }} 
                   transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }} 
                   className="text-lg font-medium text-gray-600">{hero.description}</motion.p>
@@ -100,7 +103,7 @@ const Hero = () => {
                       <p className="inline-block font-medium text-gray-300">  {hero.product.category}</p>
                     </div>
                     <h3 className="text-[16px] md:text-2xl font-semibold text-[#437d21]">{hero.product.name}</h3>
-                    <div>Stars  <span className="text-sm text-gray-500"> ({ hero.product.reviews} reviews)</span></div>
+                    <div className="flex text-nowrap mt-1 items-end"><RatingStars starData={hero.product.rating} />  <span className="text-sm text-gray-500"> ({ hero.product.reviews} reviews)</span></div>
                     <h2 className="text-2xl font-bold sm:text-3xl">
                       ₹{hero.product.price}.00  
                       <span className="text-[15px] sm:text-[18px] font-semibold sm:bg-transparent"> 
