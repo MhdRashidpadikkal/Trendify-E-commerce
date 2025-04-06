@@ -3,9 +3,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='bg-[#111111] p-10 flex flex-col gap-8 rounded-md'>
+    <div className='bg-gradient-to-r from-[#487e28] to-[#0d1a0a] p-10 flex flex-col gap-8 rounded-md'>
         
-        <div className='flex flex-wrap lg:flex-nowrap gap-5 justify-around font-semibold text-gray-400 my-10 text-[20px] text-nowrap'>
+        <div className='flex flex-wrap lg:flex-nowrap gap-5 justify-around text-[16px] md:text-xl text-white my-10 text-nowrap'>
             <div className='w-[40%] md:[25%] lg:w-auto '>
                 <p className='cursor-pointer'>Contact us</p>
                 <p className='cursor-pointer'>About us</p>
@@ -27,7 +27,7 @@ const Footer = () => {
                 <p className='cursor-pointer'>Warranty</p>
             </div>
             <div className='w-[40%] md:[25%] lg:w-auto'>
-                <p className='text-gray-200 sm:font-bold'>Payment methods</p>
+                <p className='text-white sm:font-bold'>Payment methods</p>
                 <p className='cursor-pointer'>Credit cards</p>
                 <p className='cursor-pointer'>PayPal</p>
                 <p className='cursor-pointer'>Apple Pay</p>
@@ -43,7 +43,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <p className='text-white'>Follow us on social media</p>
-                    <div className='flex gap-2 text-[#59A52C] mt-1 '>
+                    <div className='flex gap-2 text-white mt-1 '>
                         <p className='cursor-pointer'><Facebook /></p>
                         <p className='cursor-pointer'><Instagram /></p>
                         <p className='cursor-pointer'><Twitter /></p>
