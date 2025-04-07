@@ -9,7 +9,7 @@ const SuggestedProducts = () => {
         const fetchProducts = async () => {
             try {
                 const res = await axios.get('https://dummyjson.com/products');
-                setSuggestedProducts(res.data.products.slice(0, 9));    
+                setSuggestedProducts(res.data.products.slice(0, 8));    
             }catch (err) {
                 console.log(err)
             }

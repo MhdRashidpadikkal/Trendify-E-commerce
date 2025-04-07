@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import logoIcon from '../assets/logo-icon.png'
 import { useCartContext } from '@/context/CartContext'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const Navbar = () => {
     const [isToggle, setIsToggle] = useState(false)
@@ -58,7 +59,7 @@ const Navbar = () => {
     
                 <li className='relative flex md:hidden lg:flex'><Heart className='z-20 relative' /> <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-red-200 text-black text-center font-medium z-0'>{state.favorites.length}</span> </li>
                 <li className='relative '><ShoppingCart className='z-20 relative' /> <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-green-200 text-black text-center font-medium z-0'>{state.cartItems.length}</span> </li>
-                <li className='flex md:hidden' onClick={() => setIsToggle((prev) => !prev)}><Menu /></li>
+                <li className='flex md:hidden cursor-pointer' onClick={() => setIsToggle((prev) => !prev)}><Menu /></li>
             </div>   
         </div>
 
@@ -67,24 +68,32 @@ const Navbar = () => {
             <InputPlcaholder />
         </div>
 
+        <AnimatePresence>
         {
             isToggle && (
-                <div className="bg-[#111111] sidebar h-screen md:hidden px-4 py-3 absolute top-0 w-full z-50">
+                <motion.div 
+                initial={{ opacity: 0, x: 200 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
+                exit={{ opacity: 0, x: 200, transition: { duration: 0.4, ease: 'easeInOut', delay: 0 } }}
+
+                    className="bg-[#111111] sidebar h-screen md:hidden px-4 py-3 absolute top-0 w-full z-50">
                     <div className='flex justify-between items-center'>
                         <div className='flex gap-1'>
                             <img src={logoIcon} alt="" width="30px" />
                             <h2 className='text-white text-3xl font-semibold'>Trendify</h2>
                         </div>
-                        <button className='text-white text-4xl font-semibold' onClick={() => setIsToggle(false)}><CircleX /></button>
+                        <button className='text-white text-4xl font-semibold cursor-pointer ' onClick={() => setIsToggle(false)}><CircleX /></button>
                     </div>
                     <ul className='flex flex-col text-[18px] font-semibold gap-1 text-[#babcbd] py-4 w-[100%] '>
                         {
                             lists.map((item, index) => <li key={index}> <NavLink to={item.link} >{item.title}</NavLink> </li> )
                         }
                     </ul>
-                </div>
+                </motion.div>
             )
         }
+        </AnimatePresence>
     </div>
   )
 }

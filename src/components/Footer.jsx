@@ -39,7 +39,7 @@ const Footer = () => {
                     <input
                      className='border-2 px-4 rounded-md py-1 mt-3 w-[210px] sm:w-[400px] lg:w-[220px] 2xl:w-[400px] text-white'
                      type="email" placeholder="Enter your email" />
-                    <button className='ms-2 border px-1 sm:px-3 lg:px-2 2xl:px-2 py-1 rounded-md bg-white text-black cursor-pointer'>Subscribe</button>
+                    <button className='ms-2 border px-3 text-sm py-[6px] sm:py-1 sm:px-3 lg:px-2 2xl:px-2 sm:text-[18px] rounded-md bg-white text-black cursor-pointer sm:font-semibold'>Subscribe</button>
                 </div>
                 <div>
                     <p className='text-white'>Follow us on social media</p>

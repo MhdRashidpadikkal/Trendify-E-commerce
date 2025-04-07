@@ -18,7 +18,7 @@ const BrandMarquee = () => {
                     className="flex flex-shrink-0"
                 >
                     {upperMarquee.map((image, index) => {
-                    return <img className="h-20 w-46 pr-20" src={image} key={index} />;
+                    return <img className="h-20 w-36 sm:w-46 pr-10 sm:pr-20" src={image} key={index} />;
                     })}
                 </motion.div>
                 <motion.div
@@ -28,7 +28,7 @@ const BrandMarquee = () => {
                     className="flex flex-shrink-0"
                 >
                     {upperMarquee.map((image, index) => {
-                    return <img className="h-20 w-46 pr-20" src={image} key={index} />;
+                    return <img className="h-20 w-36 sm:w-46 pr-10 sm:pr-20" src={image} key={index} />;
                     })}
                 </motion.div>
             </div>
@@ -41,7 +41,7 @@ const BrandMarquee = () => {
                     className="flex flex-shrink-0"
                 >
                     {lowerMarquee.map((image, index) => {
-                    return <img className="h-20 w-46 pr-20" src={image} key={index} />;
+                    return <img className="h-20 w-36 sm:w-46 pr-10 sm:pr-20" src={image} key={index} />;
                     })}
                 </motion.div>
                 <motion.div
@@ -51,7 +51,7 @@ const BrandMarquee = () => {
                     className="flex flex-shrink-0"
                 >
                     {lowerMarquee.map((image, index) => {
-                    return <img className="h-20 w-46 pr-20" src={image} key={index} />;
+                    return <img className="h-20 w-36 sm:w-46 pr-10 sm:pr-20" src={image} key={index} />;
                     })}
                 </motion.div>
             </div>

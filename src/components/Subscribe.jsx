@@ -12,7 +12,7 @@ const Subscribe = () => {
             <p className='font-semibold text-[18px] text-gray-500 my-3'>
                 Get the latest updates on new products and upcoming sales
             </p>
-            <button className='border-2 border-black px-4 rounded-md cursor-pointer sm:text-[18px] lg:text-[20px] font-semibold hover:bg-black transition-colors duration-800 ease-in-out  hover:text-white '>
+            <button className='border-2 border-black px-4 rounded-md cursor-pointer text-sm sm:text-[18px] lg:text-[20px] font-bold hover:bg-black transition-colors duration-800 ease-in-out  hover:text-white '>
                 Subscribe
             </button>
 
