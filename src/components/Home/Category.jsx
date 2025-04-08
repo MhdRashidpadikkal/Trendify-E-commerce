@@ -1,11 +1,11 @@
 import { MoveRight } from 'lucide-react'
 import React from 'react'
-import beauty from '../assets/category/beauty-pick.png'
-import laptop from '../assets/category/laptop.png'
-import game from '../assets/category/game.png'
-import toy from '../assets/category/toy.png'
-import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
-import { Card, CardContent, CardTitle } from './ui/card'
+import beauty from '../../assets/category/beauty-pick.png'
+import laptop from '../../assets/category/laptop.png'
+import game from '../../assets/category/game.png'
+import toy from '../../assets/category/toy.png'
+import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel'
+import { Card, CardContent, CardTitle } from '../ui/card'
 
 const Category = () => {
     const categories = [

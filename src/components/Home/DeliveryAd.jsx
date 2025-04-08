@@ -1,5 +1,5 @@
 import React from "react";
-import catAd from "../assets/deliver-to-you.png";
+import catAd from "../../assets/deliver-to-you.png";
 
 const DeliveryAd = () => {
   return (

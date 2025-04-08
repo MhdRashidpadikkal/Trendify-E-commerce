@@ -1,7 +1,8 @@
 import React from 'react'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel'
-import { Card, CardContent, CardDescription, CardTitle } from './ui/card'
+
+import { Card, CardContent, CardDescription, CardTitle } from '../ui/card'
 import { userCarouselData } from '@/data/userCarousel'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
 
 const UserCarousel = () => {
   return (

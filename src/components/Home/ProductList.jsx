@@ -1,7 +1,8 @@
 import { useCartContext } from '@/context/CartContext';
 import { ArrowRight, Heart } from 'lucide-react';
 import React, { useState } from 'react'
-import RatingStars from './Star';
+import RatingStars from '../common/Star';
+
 
 const ProductList = (props) => {
     const { data, title } = props;

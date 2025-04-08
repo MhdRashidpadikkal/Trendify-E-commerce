@@ -1,6 +1,5 @@
 import React from 'react'
-import subscribe from '../assets/other/subscribe-men.png';
-
+import subscribe from '../../assets/other/subscribe-men.png';
 const Subscribe = () => {
   return (
     <div className='md:flex bg-[#dfe7fb] md:h-[450px] rounded-md my-5 '>

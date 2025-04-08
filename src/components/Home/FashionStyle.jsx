@@ -1,8 +1,8 @@
 import React from 'react'
-import her from '../assets/other/fashion-her.png'
-import him from '../assets/other/fashion-him.png'
-import handBag from '../assets/other/handbag.png';
-import menShirt from '../assets/other/men-shirt.png';
+import her from '../../assets/other/fashion-her.png'
+import him from '../../assets/other/fashion-him.png'
+import handBag from '../../assets/other/handbag.png';
+import menShirt from '../../assets/other/men-shirt.png';
 
 import { ArrowRight, CircleChevronRight } from 'lucide-react'
 

@@ -30,6 +30,7 @@ const Footer = () => {
                 <p className='text-white sm:font-bold'>Payment methods</p>
                 <p className='cursor-pointer'>Credit cards</p>
                 <p className='cursor-pointer'>PayPal</p>
+                
                 <p className='cursor-pointer'>Apple Pay</p>
                 <p className='cursor-pointer' >Google Pay</p>
             </div>

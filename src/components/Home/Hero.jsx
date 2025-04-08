@@ -2,7 +2,7 @@ import { heroData } from "@/data/heroData";
 import { motion, AnimatePresence, delay } from "framer-motion";
 import { Tag } from "lucide-react";
 import { useState, useEffect } from "react";
-import RatingStars from "./Star";
+import RatingStars from "../common/Star";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

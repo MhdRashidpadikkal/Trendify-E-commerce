@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import clock from '../assets/category/clock.png';
-import watch from '../assets/category/smart-watch.png';
+import clock from '../../assets/category/clock.png';
+import watch from '../../assets/category/smart-watch.png';
 import { ArrowRight } from 'lucide-react';
 
 const OffersShowcase = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import halfStar from '../assets/hero/half-star.png'
+import halfStar from '../../assets/hero/half-star.png'
 import { Star } from 'lucide-react'
 
 
