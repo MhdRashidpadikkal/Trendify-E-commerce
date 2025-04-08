@@ -42,8 +42,8 @@ const Navbar = () => {
     <div className='relative mt-5 px-3'>
         <div className='flex justify-between '>
             <div className='flex items-center h-[60px]'>
-                <div className="logo">
-                    <img src={logo} alt="Trendify logo" width={'200px'} />
+                <div className="logo cursor-pointer">
+                    <NavLink to='/'><img src={logo} alt="Trendify logo" width={'200px'} /></NavLink>
                 </div>
                 <ul className='hidden md:flex ml-4 text-[16px] lg:text-[18px] font-semibold gap-2 xl:gap-5 text-nowrap'>
                     {
