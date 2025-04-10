@@ -8,7 +8,7 @@ import Subscribe from '@/components/Home/Subscribe'
 import SuggestedProducts from '@/components/Home/SuggestedProducts'
 import UserCarousel from '@/components/Home/UserCarousel'
 import React from 'react'
-import BrandMarquee from '@/components/Home/BrandMarquee'
+import BrandMarquee from '@/components/common/BrandMarquee'
 
 const Home = () => {
   return (

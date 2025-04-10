@@ -23,17 +23,11 @@ const FeaturedProducts = () => {
 
         fetchProducts();
     }, [])
-
-    console.log("lastviewed products : ", lastView)
-    console.log("Top products : ", topProducts)
     
   return (
     <div>
         <ProductList data= {lastView} title="Last viewed" />
         <ProductList data= {topProducts} title="Top products" />
-
-        
-
     </div>
   )
 }

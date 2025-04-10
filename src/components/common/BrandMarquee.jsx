@@ -5,7 +5,7 @@ import { lowerMarquee, upperMarquee } from '@/data/brandMarqueeData';
 const BrandMarquee = () => {
     
   return (
-    <div className=' '>
+    <div className='my-5 '>
         <h3 className='font-semibold mb-3 text-[#487e28] '>
             Trusted by top brands
         </h3>
