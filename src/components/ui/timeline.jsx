@@ -1,5 +1,6 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from "react";
+import logoIcon from '../../assets/other/logo-icon.png'
 
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
@@ -29,24 +30,26 @@ export const Timeline = ({ data }) => {
 
   return (
     <div
-      className="relative w-full my-5 font-sans bg-gray-100 dark:bg-neutral-950"
+      className="relative  w-full my-5 font-sans bg-gray-100 dark:bg-neutral-950"
       ref={containerRef}
     >
-      <div className="px-4 py-20 md:px-8 lg:px-10">
-        <h2 className="max-w-4xl mb-4 text-lg text-black md:text-4xl dark:text-white">
-          Changelog from my journey
+     <div className="px-4 md:px-8 lg:px-10 relative top-16 ">
+        <h2 className="max-w-4xl mb-4 text-lg text-black md:text-4xl dark:text-white font-semibold flex gap-2">
+          <img src={logoIcon} alt="" width={35} /> Trendify Store Journey
         </h2>
-        <p className="max-w-sm text-sm text-neutral-700 dark:text-neutral-300 md:text-base">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s 
-          a timeline of my journey.
+        <p className="max-w-2xl text-sm text-neutral-700 dark:text-neutral-300 md:text-base">
+          From an idea to a fully launched e-commerce platform — here's a look at how
+          <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#59A52C] to-[#549609] "> Trendify Store </span>
+          evolved over time. Each milestone brought us closer to redefining online shopping.
         </p>
       </div>
+
 
       <div ref={ref} className="relative pb-20">
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className="flex justify-start  pt-32 md:pt-40 md:gap-10"
           >
             <div className="sticky z-40 flex flex-col items-center self-start max-w-xs md:flex-row top-40 lg:max-w-sm md:w-full">
               <div className="absolute flex items-center justify-center w-10 h-10 bg-white rounded-full left-3 md:left-3 dark:bg-black">
