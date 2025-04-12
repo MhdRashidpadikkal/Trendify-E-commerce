@@ -21,7 +21,7 @@ const Hero = () => {
   const hero = heroData[currentIndex]; 
 
   return (
-    <div className="flex bg-gray-100  md:h-[450px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
+    <div className="flex bg-gray-200  md:h-[450px] lg:h-[350px] 2xl:h-[500px] rounded-md w-full mt-5 pb-7 py-18 md:py-14">
       <AnimatePresence initial={false} mode="wait">
         {(
           <div className="flex flex-col gap-10 px-5 md:flex-row md:px-0 2xl:px-28 md:gap-5">
@@ -95,7 +95,7 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1, ease: "easeInOut" }}
-                  className="bg-white rounded-md p-5 w-[300px] sm:w-[400px] md:w-[320px] lg:w-[400px] flex flex-col items-start absolute bottom-0 sm:bottom-25 2xl:bottom-10 left-0 md:left-0 2xl:left:20 "
+                  className="bg-white rounded-md p-5 w-[300px] sm:w-[400px] md:w-[320px] lg:w-[400px] flex flex-col items-start absolute bottom-0 sm:bottom-25 lg:bottom-0 2xl:bottom-10 left-0 md:left-0 lg:left-16 2xl:left:20 "
                   >
                     
                     <div className="flex items-center gap-1">

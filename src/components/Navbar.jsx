@@ -1,8 +1,8 @@
 import { CircleX, Heart, HeartIcon, Menu, ShoppingCart, X } from 'lucide-react'
 import logo from '../assets/logo.png'
 import InputPlcaholder from './aceternityUi/InputPlcaholder'
-import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import logoIcon from '../assets/logo-icon.png'
 import { useCartContext } from '@/context/CartContext'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -10,6 +10,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 const Navbar = () => {
     const [isToggle, setIsToggle] = useState(false)
     const { state } = useCartContext()
+
+    const location = useLocation()
+
+    useEffect(() => {setIsToggle(false)}, [location.pathname])
     
     
     const lists = [
