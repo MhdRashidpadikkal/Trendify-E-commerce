@@ -180,7 +180,7 @@ const ProductPage = () => {
                     }
 
                     {/* pagination button */}
-                    <div className='flex flex-wrap md:flex-nowrap justify-center items-center gap-3 pt-3'>
+                    <div className='flex flex-wrap md:flex-nowrap justify-center items-center gap-1 md:gap-3 pt-3'>
                         <button
                          disabled={page === 1}
                          className=' bg-[#2a2a2a] h-[30px] px-3 rounded-md text-white cursor-pointer disabled:opacity-80 disabled:text-white/40 font-medium '
@@ -201,7 +201,7 @@ const ProductPage = () => {
                                     <button
                                         key={item}
                                         onClick={() => setPage(item)}
-                                        className={`h-[27px] ${(item == 2 || item == totalPages - 1 ) && "hidden md:flex"} px-3 rounded font-medium cursor-pointer bg-gradient-to-r from-[#437d21] to-[#6fca3a]  ${page === item ? ' text-white' : 'bg-gray-200 from-[#437d21]/50 to-[#6fca3a]/50  '
+                                        className={`h-[27px]  px-3 rounded font-medium cursor-pointer bg-gradient-to-r from-[#437d21] to-[#6fca3a]  ${page === item ? ' text-white' : 'bg-gray-200 from-[#437d21]/50 to-[#6fca3a]/50  '
                                             }`}
                                     >
                                         {item}
