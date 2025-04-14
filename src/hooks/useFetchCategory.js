@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-export const useFeatchGategory = () => {
+export const useFetchCategory = () => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
 
