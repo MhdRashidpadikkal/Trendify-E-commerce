@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Range, getTrackBackground } from "react-range"
 
 const MIN = 0
-const MAX = 10000
+const MAX = 400000
 
 export function PriceRangeSlider() {
   const [values, setValues] = useState([0, 5000])
@@ -10,7 +10,7 @@ export function PriceRangeSlider() {
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-lg font-semibold text-[#111111] mb-2">
-        ₹{values[0]} - ₹{values[1]}
+        ₹{values[0]} - ₹{values[1]} <span className="text-sm relative right-1">+</span>
       </div>
 
       <Range
@@ -35,8 +35,7 @@ export function PriceRangeSlider() {
             }}
             className="w-full rounded "
           >
-            {children}
-          </div>
+            {children}          </div>
         )}
         renderThumb={({ props, index }) => {
             const {key, ...restProps} = props;
