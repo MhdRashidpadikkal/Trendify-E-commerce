@@ -1,4 +1,4 @@
-import { useFeatchGategory } from '@/hooks'
+
 import { ArrowDownUp, Check, CircleX, SlidersHorizontal } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import { PriceRangeSlider } from './PriceRangeSlider';
@@ -6,11 +6,13 @@ import RatingStars from '../common/Star';
 import axios from 'axios';
 import { getSmartPagination } from '@/utils/pagination';
 import { formatPriceInINR } from '@/utils/currencyFormat';
+import { useFetchCategory } from '@/hooks';
+
 
 
 const ProductPage = () => {
-    const { categories, loading } = useFeatchGategory();
-    const [selectedGategory, setSelectedCategory] = useState([]);
+    
+    const [selectedCategory, setSelectedCategory] = useState([]);
     const [catListCount, setCatListCount] = useState(false);
     const [selectedRating, setSelectedRating] = useState([]);
     const [selectedBrand, setSelectedBrand] = useState([]);
@@ -24,13 +26,13 @@ const ProductPage = () => {
     const skip = (page - 1) * limit;
     const totalPages = Math.ceil(totalproducts / limit)
 
-    const handleCategoryChange = (e, hello) => {
+    const handleFilterState = (e, filterState) => {
         const { value, checked } = e.target;
 
         if (checked) {
-            hello((prev) => [...prev, value]);
+            filterState((prev) => [...prev, value]);
         } else {
-            hello((prev) => prev.filter((cat) => cat !== value));
+            filterState((prev) => prev.filter((cat) => cat !== value));
         }
     }
 
@@ -74,7 +76,7 @@ const ProductPage = () => {
                 ><ArrowDownUp /> Sort</button>
             </div>
             <div className='flex gap-3 relative ' >
-                <div className={`md:w-[20%] md:border-2 bg-white border-r-2 rounded-md ${isFilterBar ? "block" : "hidden"} md:block px-5 absolute left-0 top-0 md:relative py-3 ${!catListCount ? "h-[750px]" : "h-[1010px]"} `}>
+                {/* <div className={`md:w-[20%] md:border-2 bg-white border-r-2 rounded-md ${isFilterBar ? "block" : "hidden"} md:block px-5 absolute left-0 top-0 md:relative py-3 ${!catListCount ? "h-[750px]" : "h-[1010px]"} `}>
                     <CircleX onClick={() => setIsFilterBar(false)} className='absolute right-2 cursor-pointer md:hidden' />
                     <h3 className='text-xs text-gray-400'>Filter by Category</h3>
                     <ul className='mt-3'>
@@ -87,13 +89,13 @@ const ProductPage = () => {
                                     .join(' ')
 
                                 return (
-                                    <li key={index}>
+                                    <li key={item}>
                                         <label className="flex items-center gap-2 cursor-pointer">
                                             <input
                                                 type="checkbox"
                                                 value={item}
-                                                checked={selectedGategory.includes(item)}
-                                                onChange={(e) => handleCategoryChange(e, setSelectedCategory)}
+                                                checked={selectedCategory.includes(item)}
+                                                onChange={(e) => handleFilterState(e, setSelectedCategory)}
                                                 className="peer hidden"
                                             />
                                             <div className="w-4 h-4 rounded border border-gray-300 bg-white peer-checked:bg-green-500 peer-checked:border-green-600 flex items-center justify-center transition-colors duration-200">
@@ -125,7 +127,7 @@ const ProductPage = () => {
                                     type="checkbox"
                                     value={i}
                                     checked={selectedRating.includes(`${i}`)}
-                                    onChange={(e) => handleCategoryChange(e, setSelectedRating)}
+                                    onChange={(e) => handleFilterState(e, setSelectedRating)}
                                     className="peer hidden"
                                 />
                                 <div className="w-4 h-4 rounded border border-gray-300 bg-white peer-checked:bg-green-500 peer-checked:border-green-600 flex items-center justify-center transition-colors duration-200">
@@ -144,7 +146,7 @@ const ProductPage = () => {
                                     type="checkbox"
                                     value={item}
                                     checked={selectedBrand.includes(item)}
-                                    onChange={(e) => handleCategoryChange(e, setSelectedBrand)}
+                                    onChange={(e) => handleFilterState(e, setSelectedBrand)}
                                     className="peer hidden"
                                 />
                                 <div className="w-4 h-4 rounded border border-gray-300 bg-white peer-checked:bg-green-500 peer-checked:border-green-600 flex items-center justify-center transition-colors duration-200">
@@ -156,13 +158,14 @@ const ProductPage = () => {
                     }
 
 
-                </div>
+                </div> */}
+
                 <div className={`w-[80%] md:border-2 rounded-md p-5 ${!catListCount ? "  min-h-[950px]" : "min-h-[1010px]"} `}>
                     <h3 className='mb-5 font-medium'>{`${skip + 1} - ${skip + limit > totalproducts ? totalproducts : skip + limit}`} over <span className='bg-gradient-to-r from-[#437d21] to-[#6fca3a] bg-clip-text text-transparent '>{totalproducts}</span> results</h3>
 
                     {
                         products.map((item, index) => (
-                            <div key={index} className='flex border-t border-b items-center'>
+                            <div key={item.id} className='flex border-t border-b items-center'>
                                 <div className='w-[35%]'>
                                     <img src={item.thumbnail} alt={item.title} />
                                 </div>

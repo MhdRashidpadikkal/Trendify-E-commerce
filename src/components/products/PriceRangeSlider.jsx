@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Range, getTrackBackground } from "react-range"
 
 const MIN = 0
-const MAX = 400000
+const MAX = 200000
 
 export function PriceRangeSlider() {
   const [values, setValues] = useState([0, 5000])

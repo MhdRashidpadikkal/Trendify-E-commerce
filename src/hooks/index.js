@@ -1,1 +1,1 @@
-export * from './useFetchGategory'
+export * from './useFetchCategory'
