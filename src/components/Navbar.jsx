@@ -9,11 +9,21 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const Navbar = () => {
     const [isToggle, setIsToggle] = useState(false)
+    const [isSticky, setIsSticky] = useState(false)
     const { state } = useCartContext()
 
     const location = useLocation()
 
     useEffect(() => {setIsToggle(false)}, [location.pathname])
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsSticky(window.scrollY > 0)
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll)
+    })
     
     
     const lists = [
@@ -43,8 +53,8 @@ const Navbar = () => {
 
   return (
     
-    <div className='relative mt-5 px-3'>
-        <div className='flex justify-between '>
+    <div className={` mt-5 px-3 sticky top-0  z-50 ${isSticky ? 'bg-white/90  py-2' : ''} `}>
+        <div className='flex justify-between relative '>
             <div className='flex items-center h-[60px]'>
                 <div className="logo cursor-pointer">
                     <NavLink to='/'><img src={logo} alt="Trendify logo" width={'200px'} /></NavLink>
@@ -61,8 +71,8 @@ const Navbar = () => {
                  <InputPlcaholder  />
                 </div>
     
-                <li className='relative flex md:hidden lg:flex'><Heart className='z-20 relative' /> <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-red-200 text-black text-center font-medium z-0'>{state.favorites.length}</span> </li>
-                <li className='relative '><ShoppingCart className='z-20 relative' /> <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-green-200 text-black text-center font-medium z-0'>{state.cartItems.length}</span> </li>
+                <li className='relative flex md:hidden lg:flex'><Heart className='z-20 relative' /> {state.favorites.length > 0 && <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-red-200 text-black text-center font-medium z-0'>{state.favorites.length}</span> }</li>
+                <li className='relative '><ShoppingCart className='z-20 relative' /> {state.totalCarts > 0 && <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-green-200 text-black text-center font-medium z-0'>{state.totalCarts}</span> } </li>
                 <li className='flex md:hidden cursor-pointer' onClick={() => setIsToggle((prev) => !prev)}><Menu /></li>
             </div>   
         </div>

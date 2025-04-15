@@ -1,16 +1,23 @@
-import React, { useState } from "react"
+import { useFilterContext } from "@/context/FilterContext"
+import { formatPriceInINR } from "@/utils/currencyFormat"
+import React, { useEffect, useState } from "react"
 import { Range, getTrackBackground } from "react-range"
 
 const MIN = 0
-const MAX = 200000
+const MAX = 1000
 
 export function PriceRangeSlider() {
-  const [values, setValues] = useState([0, 5000])
+  const [values, setValues] = useState([0, 1000])
+  const {dispatch} = useFilterContext()
+
+  useEffect(() => {
+    dispatch({type: "SET_PRICE_RANGE" , payload: {max: formatPriceInINR(values[1]), min: formatPriceInINR(values[0])}})
+  }, [values])
 
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="text-lg font-semibold text-[#111111] mb-2">
-        ₹{values[0]} - ₹{values[1]} <span className="text-sm relative right-1">+</span>
+        ₹{formatPriceInINR(values[0])} - ₹{formatPriceInINR(values[1])} <span className="text-sm relative right-1">+</span>
       </div>
 
       <Range

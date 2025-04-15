@@ -26,3 +26,14 @@ export const useFetchCategory = () => {
 
     return {categories, loading}
 }   
+
+
+export const handleFilterState = (e, filterState) => {
+    const { value, checked } = e.target;
+
+    if (checked) {
+        filterState((prev) => [...prev, value]);
+    } else {
+        filterState((prev) => prev.filter((cat) => cat !== value));
+    }
+}
