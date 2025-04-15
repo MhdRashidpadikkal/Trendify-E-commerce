@@ -22,11 +22,8 @@ export const getSmartPagination = (totalPages, currentPage) => {
     if (currentPage < totalPages - 3) pages.push('...')
   
     // Always show last 2 pages
-    if (totalPages > 4) pages.push(totalPages - 1)
+    if (totalPages >= 4) pages.push(totalPages - 1)
     if (totalPages > 3) pages.push(totalPages)
-
-
-        console.log("we are sending to data to pagination", pages)
   
     // Remove duplicates and sort properly
     return pages

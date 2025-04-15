@@ -48,3 +48,7 @@ export const lowerMarquee = [
     img21,
     img22,
 ];
+
+export const productsBrands = [
+  "Apple", "Samsung", "OPPO", "Gucci", "Adidas", "Canon", "Nike", "Dell"
+];
