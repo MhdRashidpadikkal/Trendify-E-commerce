@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Products from './pages/Products'
 import About from './pages/About'
 import { FilterProvider } from './context/FilterContext'
+import ProductDetails from './pages/ProductDetails'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
               <Route exact path='/' element={<Home />} />
               <Route exact path='/products' element={<Products />} />
               <Route exact path='/about' element={<About />} />
+              <Route exact path='product-detail/:id/:title' element={<ProductDetails /> } />
             </Routes>
             <Footer />
           </div>
