@@ -4,6 +4,7 @@ import { formatPriceInINR } from '@/utils/currencyFormat'
 import { Heart, Minus, Plus, Trash2 } from 'lucide-react'
 import { useCartContext } from '@/context/CartContext'
 import { useProductActions } from '@/hooks'
+import { useNavigate } from 'react-router-dom'
 
 const Product = ({ item, index }) => {
 
@@ -11,14 +12,19 @@ const Product = ({ item, index }) => {
     const { addToCart, addToFavorite, removeFavorite, messageState } = useProductActions();
 
     const cartItem = state.cartItems.find(cart => cart.item.id === item.id)
+    const navigate = useNavigate();
 
     return (
         <div key={item.id} className='flex border-t border-b items-center'>
-            <div className='w-[35%]'>
+            <div
+            onClick={() => navigate(`/product-detail/${item.id}/${item.title}`)} 
+            className='w-[35%] cursor-pointer '>
                 <img src={item.thumbnail} alt={item.title} />
             </div>
             <div className='w-[65%] py-3 relative '>
-                <h2 className='md:text-2xl text-nowrap font-medium cursor-pointer hover:text-[#437d21] transition-all duration-300 '>{item.title}</h2>
+                <h2 
+                onClick={() => navigate(`/product-detail/${item.id}/${item.title}`)}
+                className='md:text-2xl text-nowrap font-medium cursor-pointer hover:text-[#437d21] transition-all duration-300 '>{item.title}</h2>
                 <p className='text-sm '>🏷️ {item.tags[0]}</p>
                 <p className=' flex gap-2 text-nowrap items-end font-medium mt-2'>{item.rating} <RatingStars starData={item.rating} /> <span className='text-[#af8309a1] font-medium text-sm '> {index % 4 === 0 ? item.reviews.length * item.stock + 2 : (index % 3 === 0 ? item.reviews.length * item.stock + 3 : item.reviews.length + item.stock)} reveiws </span> </p>
                 <h5 className='text-sm text-gray-400 text-nowrap'>{20 * item.stock + index + 4}+ bought in past month </h5>
@@ -34,11 +40,11 @@ const Product = ({ item, index }) => {
                     {cartItem ? (
                         <div className='flex items-center gap-4 mt-2 border-2 border-[#153103] px-3  rounded-xl'>
                             <button
-                                onClick={() => dispatch({ type: 'DECREASE_QUANTITY', payload: { item } })}
+                                onClick={() => dispatch({ type: 'DECREASE_QUANTITY', payload: {id: item.id}  })}
                                 className='cursor-pointer'> {cartItem.quantity !== 1 ? <Minus className='w-4' /> : <Trash2 className='w-4' />} </button>
                             <span>{cartItem.quantity}</span>
                             <button
-                                onClick={() => dispatch({ type: 'INCREASE_QUANTITY', payload: { item } })}
+                                onClick={() => dispatch({ type: 'INCREASE_QUANTITY', payload: {id: item.id} })}
                                 className='cursor-pointer'><Plus className='w-4' /> </button>
                         </div>
                     ) :

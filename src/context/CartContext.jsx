@@ -17,15 +17,19 @@ const cartReducer = (state, action) => {
             return {...state, cartItems:[...state.cartItems, {...action.payload, quantity:1}]};
         case 'INCREASE_QUANTITY' : {
             return {...state, 
-                cartItems: state.cartItems.map(item => 
-                    item.id === action.payload.id ? {...item, quantity: item.quantity + 1} : item
+                cartItems: state.cartItems.map(cartItem => {
+                    // console.log("item.id == ", item.id + "action.payload.id :", action.payload.id + " --- ", "state.cartItems", state.cartItems)
+                    return (
+                        cartItem.item.id === action.payload.id ? {...cartItem, quantity: cartItem.quantity + 1} : cartItem
+                    )
+                }
                 )
             }
         }
         case 'DECREASE_QUANTITY' : {
             return {...state,
-                cartItems: state.cartItems.map(item => 
-                    item.id === action.payload.id ? {...item, quantity: item.quantity - 1} : item
+                cartItems: state.cartItems.map(cartItem => 
+                    cartItem.item.id === action.payload.id ? {...cartItem, quantity: cartItem.quantity - 1} : cartItem
                  ) 
                  .filter(item => item.quantity > 0)
             }
