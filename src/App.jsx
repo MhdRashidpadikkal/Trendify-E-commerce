@@ -10,6 +10,7 @@ import Products from './pages/Products'
 import About from './pages/About'
 import { FilterProvider } from './context/FilterContext'
 import ProductDetails from './pages/ProductDetails'
+import Cart from './pages/Cart'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
               <Route exact path='/products' element={<Products />} />
               <Route exact path='/about' element={<About />} />
               <Route exact path='product-detail/:id/:title' element={<ProductDetails /> } />
+              <Route exact path='/cart' element={<Cart />} />
             </Routes>
             <Footer />
           </div>

@@ -1,7 +1,7 @@
 import { CircleX, Heart, HeartIcon, Menu, ShoppingCart, X } from 'lucide-react'
 import logo from '../assets/logo.png'
 import InputPlcaholder from './aceternityUi/InputPlcaholder'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import logoIcon from '../assets/logo-icon.png'
 import { useCartContext } from '@/context/CartContext'
@@ -13,6 +13,7 @@ const Navbar = () => {
     const { state } = useCartContext()
 
     const location = useLocation()
+    const naviage = useNavigate()
 
     useEffect(() => {setIsToggle(false)}, [location.pathname])
 
@@ -72,7 +73,9 @@ const Navbar = () => {
                 </div>
     
                 <li className='relative flex md:hidden lg:flex'><Heart className='z-20 relative' /> {state.favorites.length > 0 && <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-red-200 text-black text-center font-medium z-0'>{state.favorites.length}</span> }</li>
-                <li className='relative '><ShoppingCart className='z-20 relative' /> {state.totalCarts > 0 && <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-green-200 text-black text-center font-medium z-0'>{state.totalCarts}</span> } </li>
+                <li className='relative cursor-pointer '
+                onClick={() => naviage('/cart') }
+                ><ShoppingCart className='z-20 relative' /> {state.totalCarts > 0 && <span className='absolute bottom-4 right-[-12px] w-[25px] h-[25px] rounded-full bg-green-200 text-black text-center font-medium z-0'>{state.totalCarts}</span> } </li>
                 <li className='flex md:hidden cursor-pointer' onClick={() => setIsToggle((prev) => !prev)}><Menu /></li>
             </div>   
         </div>
