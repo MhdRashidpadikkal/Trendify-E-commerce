@@ -154,4 +154,17 @@
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
 }
+
+@keyframes border-reverse {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.animate-border-reverse {
+  animation: border-reverse 3s linear forwards;
+}
 }
