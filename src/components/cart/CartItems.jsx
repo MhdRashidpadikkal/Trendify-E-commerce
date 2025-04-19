@@ -29,7 +29,7 @@ const CartItems = () => {
 
     return (
         <div className='flex my-5 gap-3'>
-            <div className='md:w-[80%] border p-5 rounded-md '>
+            <div className='w-full md:w-[80%] border p-5 rounded-md '>
                 <h2 className=' md:text-4xl font-medium '>Shopping cart</h2>
 
                 <div className='sticky z-10 top-28 py-4 bg-white '>
