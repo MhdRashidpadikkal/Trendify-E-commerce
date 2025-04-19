@@ -16,7 +16,7 @@ const ProductDetails = () => {
   return (
     <div>
      
-      <DetailPage currentProduct={currentProduct} />
+      <DetailPage currentProduct={currentProduct} allProducts={allProducts} />
     </div>
   )
 }
