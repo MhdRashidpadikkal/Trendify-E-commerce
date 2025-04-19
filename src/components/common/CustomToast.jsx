@@ -19,7 +19,7 @@ const CustomToast = () => {
   return (
     showToast && 
     <div className='relative'>
-        <div className='md:w-[500px] bg-green-400  text-center py-3 rounded-sm fixed md:right-[30%] z-50 '>
+        <div className='md:w-[500px] bg-green-600  text-center py-3 rounded-sm fixed md:right-[30%] z-50 '>
         <div className="absolute top-0 left-0 h-[2px] rounded-sm bg-[#1a1a1a] animate-border-reverse" />
 
             <p className='text-[18px] font-medium text-[#ffffff] '>{state.message}</p>

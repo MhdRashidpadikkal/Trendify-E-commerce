@@ -5,8 +5,9 @@ import RatingStars from '../common/Star'
 import { formatPriceInINR } from '@/utils/currencyFormat'
 import { useCartContext } from '@/context/CartContext'
 import { useProductActions } from '@/hooks'
+import ProductList from '../Home/ProductList'
 
-const DetailPage = ({ currentProduct }) => {
+const DetailPage = ({ currentProduct, allProducts }) => {
     const navigate = useNavigate()
     const { state, dispatch } = useCartContext()
 
@@ -14,7 +15,7 @@ const DetailPage = ({ currentProduct }) => {
     const { addToCart } = useProductActions()
     const [currentIndex, setCurrentIndex] = useState(null);
 
-    
+    const relatedProducts = allProducts.filter((item) => item.category == currentProduct?.category && item.id !== currentProduct?.id)
 
     const toggleNextIndex = () => {
         if (currentIndex === null) {
@@ -34,6 +35,18 @@ const DetailPage = ({ currentProduct }) => {
         }
     }
 
+    const handleBuyNow = () => {
+        if (cartItem === undefined) {
+            addToCart(currentProduct)
+            navigate('/cart')
+            console.log("handle buy now if condition worked")
+        } else {
+            navigate('/cart')
+        }
+    }
+
+    console.log("current cart item is", cartItem)
+
     return (
         <div>
             <div className='flex items-center gap-2 font-medium '>
@@ -45,8 +58,8 @@ const DetailPage = ({ currentProduct }) => {
                 <h4>{currentProduct?.title}</h4>
             </div>
 
-            <div className='flex my-5'>
-                <div className='w-[40%] px-10' >
+            <div className='flex my-5 flex-col md:flex-row '>
+                <div className='md:w-[40%] px-10' >
                     <div className=' h-[350px]  flex items-center justify-center border-2 rounded-md relative'>
                         <img src={currentIndex == null ? currentProduct?.thumbnail : currentProduct?.images[currentIndex]} alt="" className='' />
                         <span
@@ -68,7 +81,7 @@ const DetailPage = ({ currentProduct }) => {
                         }
                     </div>
                 </div>
-                <div className='w-[60%]' >
+                <div className='md:w-[60%] px-5 mt-5 md:px-0 md:mt-0 ' >
                     <p className='flex gap-1 text-center tet-sm '>
                         <span className='border border-[green] px-2 rounded-full ' >🏷️  {currentProduct?.category}</span> </p>
                     <h2 className='mt-2 text-2xl font-medium md:text-3xl'>{currentProduct?.title}</h2>
@@ -83,11 +96,11 @@ const DetailPage = ({ currentProduct }) => {
                     {cartItem ? (
                         <div className='flex w-[150px] justify-around items-center gap-4 mt-2 border-2 border-[#153103] px-3  rounded-xl'>
                             <button
-                                onClick={() => dispatch({ type: 'DECREASE_QUANTITY', payload: {id: currentProduct.id}  })}
+                                onClick={() => dispatch({ type: 'DECREASE_QUANTITY', payload: { id: currentProduct.id } })}
                                 className='cursor-pointer'> {cartItem.quantity !== 1 ? <Minus className='w-4' /> : <Trash2 className='w-4' />} </button>
                             <span>{cartItem.quantity}</span>
                             <button
-                                onClick={() => dispatch({ type: 'INCREASE_QUANTITY', payload: {id: currentProduct.id} })}
+                                onClick={() => dispatch({ type: 'INCREASE_QUANTITY', payload: { id: currentProduct.id } })}
                                 className='cursor-pointer'><Plus className='w-4' /> </button>
                         </div>
                     ) :
@@ -95,11 +108,23 @@ const DetailPage = ({ currentProduct }) => {
                             onClick={() => addToCart(currentProduct)}
                         >Add to cart</button>)
                     }
-                    <Link to='/cart' >
-                        <p className='bg-[#ff7b00] duration-300  transition-all text-white  px-3 rounded-sm w-[150px] mt-2 text-center font-medium text-sm py-1 cursor-pointer hover:bg-[#ff8800c2]' >But now</p>
-                    </Link>
+
+                    <p
+                        onClick={handleBuyNow}
+                        className='bg-[#ff7b00] duration-300  transition-all text-white  px-3 rounded-sm w-[150px] mt-2 text-center font-medium text-sm py-1 cursor-pointer hover:bg-[#ff8800c2]' >But now</p>
+
                 </div>
             </div>
+
+            {/* Related products */}
+            {
+                relatedProducts.length > 0 && (
+                    <div>
+
+                        <ProductList data={relatedProducts} title="Related products" />
+                    </div>
+                )
+            }
 
         </div>
     )

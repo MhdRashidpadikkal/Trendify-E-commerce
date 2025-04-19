@@ -18,8 +18,7 @@ const cartReducer = (state, action) => {
         case 'INCREASE_QUANTITY' : {
             return {...state, 
                 cartItems: state.cartItems.map(cartItem => {
-                    // console.log("item.id == ", item.id + "action.payload.id :", action.payload.id + " --- ", "state.cartItems", state.cartItems)
-                    return (
+                   return (
                         cartItem.item.id === action.payload.id ? {...cartItem, quantity: cartItem.quantity + 1} : cartItem
                     )
                 }
@@ -34,6 +33,8 @@ const cartReducer = (state, action) => {
                  .filter(item => item.quantity > 0)
             }
         }
+        case 'RESET_CART':
+            return {...state, cartItems:[] }
         case 'ADD_FAVOURITE':
             return {...state, favorites: [...state.favorites, action.payload] }
         case 'REMOVE_FAVOURITE':
