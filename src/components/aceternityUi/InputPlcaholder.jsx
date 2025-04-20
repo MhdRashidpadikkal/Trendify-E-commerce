@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { PlaceholdersAndVanishInput } from '../ui/placeholders-and-vanish-input' 
+import { useNavigate } from 'react-router-dom';
 
 
 const InputPlcaholder = () => {
@@ -9,14 +10,20 @@ const InputPlcaholder = () => {
         "Discover fashion essentials...",
         "Looking for something specific?",
         "Shop now and get exclusive discounts!",
-      ];      
+      ];     
+
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate()
+      
+  
     
       const handleChange = (e) => {
-        console.log(e.target.value);
+        setSearchQuery(e.target.value);
       };
       const onSubmit = (e) => {
         e.preventDefault();
-        console.log("submitted");
+        console.log("submitted", searchQuery );
+        navigate(`/search/${searchQuery}`)
       };
   return (
     <div className="flex px-4 w-justify-center" >

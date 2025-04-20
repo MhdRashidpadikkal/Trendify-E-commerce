@@ -26,7 +26,6 @@ const CartItems = () => {
     }
 
 
-
     return (
         <div className='flex my-5 gap-3'>
             <div className='w-full md:w-[80%] border p-5 rounded-md '>

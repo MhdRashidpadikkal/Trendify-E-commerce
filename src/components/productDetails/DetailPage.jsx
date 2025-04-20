@@ -45,7 +45,6 @@ const DetailPage = ({ currentProduct, allProducts }) => {
         }
     }
 
-    console.log("current cart item is", cartItem)
 
     return (
         <div>

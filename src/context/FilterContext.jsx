@@ -10,7 +10,7 @@ const initialState = {
     priceRangeMax: 0,
     priceRangeMin: 0,
     filteredProducts: [],
-    currentPage:1
+    currentPage: 1
 }
 
 const filterReducer = (state, action) => {

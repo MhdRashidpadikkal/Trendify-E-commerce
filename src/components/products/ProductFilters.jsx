@@ -28,7 +28,7 @@ const ProductFilters = () => {
 
     return (
 
-        <div className={`md:w-[20%] md:border-2 bg-white border-r-2 rounded-md ${state.isFilterBar ? "block" : "hidden"} md:block z-50 px-5 absolute left-0 top-0 md:relative py-3 ${!state.showAllCategories ? "h-[750px]" : "h-[1010px]"} `}>
+        <div className={`md:w-[20%] md:border-2 bg-white border-r-2 rounded-md ${state.isFilterBar ? "block" : "hidden"} md:block z-40 px-5 absolute left-0 top-0 md:relative py-3 ${!state.showAllCategories ? "h-[750px]" : "h-[1010px]"} `}>
             <CircleX onClick={() => dispatch({type:"HIDE_FILTER_BAR"})} className='absolute cursor-pointer right-2 md:hidden' />
             <h3 className='text-xs text-gray-400'>Filter by Category</h3>
             <ul className='mt-3'>

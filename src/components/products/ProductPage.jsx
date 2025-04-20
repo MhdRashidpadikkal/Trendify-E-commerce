@@ -1,7 +1,5 @@
 
 import { ArrowDownUp, SlidersHorizontal } from 'lucide-react';
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
 import ProductFilters from './ProductFilters';
 import { useFilterContext } from '@/context/FilterContext';
 import Product from './Product';
@@ -9,10 +7,6 @@ import Pagination from './Pagination';
 
 
 const ProductPage = () => {
-
-
-    // const [products, setProducts] = useState([]);
-
 
     const { state,dispatch } = useFilterContext()
 
@@ -23,10 +17,6 @@ const ProductPage = () => {
     const endIndex = startIndex + limit;
 
     const products = state.filteredProducts.slice(startIndex, endIndex);
-
-    
-    console.log("custom paginationed products", products)
-
 
     return (
         <div className="flex flex-col my-5 border-2 md:border-0 ">
@@ -39,7 +29,6 @@ const ProductPage = () => {
                 ><ArrowDownUp /> Sort</button>
             </div>
             <div className='flex gap-3 relative ' >
-
 
                 <ProductFilters />
 
